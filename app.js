@@ -2,8 +2,8 @@
 let Input = [1 , 4 , 7]  
 
 function average(array){
-    let total = array.reduce((a,b) => a + b, 0);
-    return total / array.length;
+    let sum = array.reduce((a,b) => a + b, 0);
+    return sum / array.length;
 }
 
 console.log(average(Input))
@@ -27,15 +27,15 @@ let colorchange = function(clicked) {
   }
 
   //very hard
-  const coinChange = (coins, amount) => {
-    const dp = Array(amount + 1).fill(Infinity);
+  let coinChange = (coins, total) => {
+    let dp = Array(total + 1).fill(Infinity);
     dp[0] = 0; 
     for (let coin of coins) { 
-      for (let i = coin; i <= amount; i++) { 
+      for (let i = coin; i <= total; i++) { 
         dp[i] = Math.min(dp[i], dp[i - coin] + 1); 
       }
     }
-    return dp[amount] === Infinity ? -1 : dp[amount];
+    return dp[total] === Infinity ? -1 : dp[total];
   };
   console.log(coinChange([2,4,7],6))
 
